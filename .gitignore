@@ -50,3 +50,5 @@ ci/
 # Secrets
 .env
 .env.*
+
+docker-compose.override.yaml
