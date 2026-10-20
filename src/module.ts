@@ -4,37 +4,16 @@ import { SimplePanel } from './components/SimplePanel';
 
 export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions((builder) => {
   return builder
+    .addColorPicker({
+      path: 'chipColor',
+      name: 'Chip colour',
+      description: 'Background colour of the chips',
+      defaultValue: 'blue',
+    })
     .addTextInput({
-      path: 'text',
-      name: 'Simple text option',
-      description: 'Description of panel option',
-      defaultValue: 'Default value of text input option',
-    })
-    .addBooleanSwitch({
-      path: 'showSeriesCount',
-      name: 'Show series counter',
-      defaultValue: false,
-    })
-    .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
-      settings: {
-        options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
-        ],
-      },
-      showIf: (config) => config.showSeriesCount,
+      path: 'variableNames',
+      name: 'Variables to show',
+      description: 'Variable names separated by commas, e.g. ward,sensor. Leave empty to show all.',
+      defaultValue: '',
     });
 });
